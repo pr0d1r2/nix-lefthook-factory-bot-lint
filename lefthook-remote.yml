@@ -1,0 +1,7 @@
+---
+pre-push:
+  commands:
+    factory-bot-lint:
+      glob: "{spec/factories/**/*.rb,app/models/**/*.rb}"
+      run: RAILS_ENV=test bundle exec rails runner "FactoryBot.lint" 2>/dev/null
+      timeout: 60s
